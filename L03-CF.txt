@@ -1,0 +1,21 @@
+/*
+    Level 3: Caves of fear
+*/
+var loadouts = import User/loadouts
+
+
+?loc = caves
+  ?foe ! boss  // Small enemies
+    ?hp = maxhp | foe.distance <= 23
+      loadouts.equip_staff("ice")
+    :
+      loadouts.equip_ranged_healing()
+  :?foe = boss
+    ?foe.distance > 10
+      loadouts.equip_dashing("")
+    :
+      loadouts.equip_melee("", fire)
+  :?hp < 10
+    activate potion
+
+  loadouts.healstones()

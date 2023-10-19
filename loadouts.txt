@@ -1,0 +1,35 @@
+/*
+    loadout functions
+*/
+
+func equip_melee(swordExtra, shieldExtra)
+  equipL sword *10 + swordExtra
+  equipR shield *10 + shieldExtra
+
+func equip_dashing(swordExtra)
+  equipL sword *10 + swordExtra
+  equipR shield *10 dashing
+
+func equip_ranged_healing()
+  equipL crossbow *10
+  equipR ouroboros
+
+func equip_ranged()
+  equip repeating crossbow *10
+
+func equip_staff(staffExtra)
+  equip staff + staffExtra
+
+func healstones()
+  // pick materials w/ star stone
+  ?pickup.distance < 10
+    equipL star
+    equipR shield *10
+  // Heal and walk to objective 
+  :?foe.distance > 20
+    ?hp < maxhp
+      equipL ouroboros
+      equipR shield *10 
+    :
+      equipL triskelion
+      equipR shield *10

@@ -1,0 +1,28 @@
+/*
+   Level 1: Deadwood canyon
+*/
+var loadouts = import User/loadouts
+
+
+?loc = deadwood
+  // Small enemies
+  ?foe = mosquito
+    ?foe.distance >= 5
+      loadouts.equip_ranged()
+    :
+      loadouts.equip_melee("", "poison")
+  :?foe = scarab
+    loadouts.equip_melee("", "")
+  :?foe = boss | foe = poena
+    ?foe.distance >= 8
+      loadouts.equip_dashing("")
+    :
+      loadouts.equip_melee("", "")
+  ?hp <= 10
+    activate potion
+  loadouts.healstones()
+  ?harvest.distance < 10
+    equip hatchet
+    ?harvest.distance <= 4
+    ^& item.GetCooldown("hatchet") <= 0
+      activate R
