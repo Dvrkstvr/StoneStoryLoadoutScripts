@@ -9,7 +9,7 @@ var hrminir_encountered = false
     ?hp = maxhp | foe.distance <= 23
       loadouts.Staff(poison)
     :
-      load.RangedHealing()
+      loadouts.RangedHealing()
   :?foe = pillar | foe = ice_wall
     ?foe.distance <= 5
       loadouts.LostItem(blade_of_god)
