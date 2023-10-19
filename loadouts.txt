@@ -1,35 +1,56 @@
-/*
-    loadout functions
-*/
-
-func equip_melee(swordExtra, shieldExtra)
+// melee
+func MeleeSword(swordExtra, shieldExtra)
   equipL sword *10 + swordExtra
   equipR shield *10 + shieldExtra
 
-func equip_dashing(swordExtra)
-  equipL sword *10 + swordExtra
-  equipR shield *10 dashing
+func MeleeHammer(hammerExtra, shieldExtra)
+  equipL hammer *10 + hammerExtra
+  equipR shield *10 + shieldExtra
 
-func equip_ranged_healing()
+func MeleeDPS(swordExtra, hammerExtra)
+  equipL sword *10 + swordExtra
+  equipR hammer *10 + hammerExtra
+
+// ranged
+func Ranged(shieldExtra)
+  equipL crossbow *10
+  equipR shield *10 + shieldExtra
+
+func RangedRepeat()
+  equip repeating crossbow *10
+
+func RangedHealing()
   equipL crossbow *10
   equipR ouroboros
 
-func equip_ranged()
-  equip repeating crossbow *10
+func RangedWand()
+  equipL crossbow *10
+  equipR wand *10
 
-func equip_staff(staffExtra)
-  equip staff + staffExtra
 
-func healstones()
-  // pick materials w/ star stone
+// magic
+func Staff(staffExtra)
+  equip staff *10 + staffExtra
+
+
+// special
+func Dash(swordExtra)
+  equipL sword *10 + swordExtra
+  equipR shield *10 dashing
+
+func LostItem(lostItem)
+  equip lostItem *10
+
+
+// out of battle
+func healstvr()
   ?pickup.distance < 10
     equipL star
     equipR shield *10
-  // Heal and walk to objective 
   :?foe.distance > 20
     ?hp < maxhp
       equipL ouroboros
-      equipR shield *10 
+      equipR shield *10
     :
       equipL triskelion
       equipR shield *10

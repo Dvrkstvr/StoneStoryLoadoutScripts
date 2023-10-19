@@ -1,21 +1,19 @@
-/*
-    Level 3: Caves of fear
-*/
+//   Level 3: Caves of fear
+// © https://github.com/Dvrkstvr
 var loadouts = import User/loadouts
 
 
 ?loc = caves
-  ?foe ! boss  // Small enemies
+  ?foe ! boss
     ?hp = maxhp | foe.distance <= 23
-      loadouts.equip_staff("ice")
+      loadouts.Staff("ice")
     :
-      loadouts.equip_ranged_healing()
+      loadouts.RangedHealing()
   :?foe = boss
     ?foe.distance > 10
-      loadouts.equip_dashing("")
+      loadouts.Dash("")
     :
-      loadouts.equip_melee("", fire)
+      loadouts.meleeSword(fire, "")
   :?hp < 10
     activate potion
-
-  loadouts.healstones()
+  loadouts.healstvr()

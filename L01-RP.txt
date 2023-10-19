@@ -1,38 +1,29 @@
-/*
-Level: Rocky plateau
-*/
-
+//   Level 1: Rocky plateau
+// © https://github.com/Dvrkstvr
 var loadouts = import User/loadouts
 
+
 ?loc = rocky
-  equip shovel
-  loadouts.healwalk()
-  
-  // Pick up stones quickly with Star stone
+  ?harvest
+    equip shovel
   ?pickup.distance < 6
-    loadouts.star_ouroboros()
-
-  // Boss: Dysangelos, phase 1 (base form)
+    loadouts.healstvr()
   ?foe = dysangelos_bearer
-    equipL sword
-    equipR shield
-
-  // Boss: Dysangelos, phase 2 (elemental form)
+    loadouts.MeleeShield("","")
   ?foe = dysangelos_elementalist
-    equipL sword
-    equipR shield
-    // TODO use the proper runes against
-    // the current rune in the eye of the boss
-
-  // Boss: Dysangels, phase 3 (perfect form)
+    ?foe = poison
+      loadouts.MeleeShield(ice,ice)
+    :?foe = vigor
+      loadouts.MeleeShield(poison,poison)
+    :?foe = aether
+      loadouts.MeleeShield(vigor,vigor)
+    :?foe = fire
+      loadouts.MeleeShield(aether,aether)
+    :?foe = ice
+      loadouts.MeleeShield(fire,fire)
   ?foe = dysangelos_perfected
-    equipL sword
-    equipR shield
+    loadouts.MeleeShield("","")
     ?foe.armor > 0
-      loadout 3
-    // Their most powerful move deals 30 damage
-    // points on 5* difficulty, so we need to
-    // heal if we don't have enough health and
-    // armor combined
-    ?(hp + armor) < 31
+      loadouts.MeleeHammer("","")
+    ?(hp + armor) <= 30
       activate potion
