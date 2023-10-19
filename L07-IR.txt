@@ -7,7 +7,7 @@ var hrminir_encountered = false
 ?loc = icy_ridge
   ?foe = elemental | foe = ki
     ?hp = maxhp | foe.distance <= 23
-      loadouts.Staff(poison)
+      loadouts.Staff(fire)
     :
       loadouts.RangedHealing()
   :?foe = pillar | foe = ice_wall
@@ -17,18 +17,17 @@ var hrminir_encountered = false
       ^ item.GetCooldown("blade_of_god") <= 0
         activate R
     :
-      loadouts.Dash(poison)
-
+      loadouts.Dash(fire)
 
   :?foe = boss
     hrminir_encountered = true
     ?foe.distance <= 2
       ?foe.armor > 0
-        loadouts.MeleeHammer()
+        loadouts.MeleeHammer(fire,fire)
       :
-        loadouts.MeleeDPS()
+        loadouts.MeleeDPS(fire,fire)
     :?foe.distance <= 5
       equip shovel
     :?foe.distance > 5
-      loadouts.Dash(poison)
+      loadouts.Dash(fire)
   loadouts.healstvr()

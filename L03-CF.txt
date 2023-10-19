@@ -6,14 +6,14 @@ var loadouts = import User/loadouts
 ?loc = caves
   ?foe ! boss
     ?hp = maxhp | foe.distance <= 23
-      loadouts.Staff("ice")
+      loadouts.Staff(ice)
     :
       loadouts.RangedHealing()
   :?foe = boss
     ?foe.distance > 10
-      loadouts.Dash("")
+      loadouts.Dash(ice)
     :
-      loadouts.meleeSword(fire, "")
+      loadouts.meleeSword(ice, ice)
   :?hp < 10
     activate potion
   loadouts.healstvr()

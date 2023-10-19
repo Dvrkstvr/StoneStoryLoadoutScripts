@@ -5,7 +5,7 @@ var loadouts = import User/loadouts
 
 ?loc = fungus_forest
   ?hp = maxhp | foe.distance <= 23
-    loadouts.Staff()
+    loadouts.Staff(poison)
   :
     loadouts.RangedHealing()
   ?hp <= 10
@@ -13,14 +13,14 @@ var loadouts = import User/loadouts
   loadouts.healstvr()
 ?loc = fungus_forest_boss
   ?foe = mushroom_boss_skinny
-    loadouts.Staff()
+    loadouts.Staff(poison)
   :?foe = mushroom_boss
     ?foe.distance >= 6
-      loadouts.Dash()
+      loadouts.Dash(poison)
     :?foe.armor > 0
-      loadouts.MeleeDPS()
+      loadouts.MeleeDPS(poison, poison)
     :
-      loadouts.MeleeSword()
+      loadouts.MeleeSword(poison, poison)
   ?hp <= 10
     activate potion
   loadouts.healstvr()
