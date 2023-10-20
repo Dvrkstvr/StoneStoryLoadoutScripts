@@ -1,45 +1,139 @@
 // melee
-func MeleeSword(swordExtra, shieldExtra)
-  equipL sword *10 + swordExtra
-  equipR shield *10 + shieldExtra
+func MeleeSword(swordRune, shieldRune)
+  ?swordRune = ice
+    equipL ice sword *10 +21
+  ?swordRune = fire
+    equipL fire sword *10 +21
+  ?swordRune = poison
+    equipL poison sword *10 +21
+  ?swordRune = aether
+    equipL aether sword *10 +21
+  ?swordRune = vigor
+    equipL vigor sword *10 +21
 
-func MeleeHammer(hammerExtra, shieldExtra)
-  equipL hammer *10 + hammerExtra
-  equipR shield *10 + shieldExtra
+  ?shieldRune = ice
+    equipR ice shield *10 +21
+  ?shieldRune = fire
+    equipR fire shield *10 +21
+  ?shieldRune = poison
+    equipR poison shield *10 +21
+  ?shieldRune = aether
+    equipR aether shield *10 +21
+  ?shieldRune = vigor
+    equipR vigor shield *10 +21
 
-func MeleeDPS(swordExtra, hammerExtra)
-  equipL sword *10 + swordExtra
-  equipR hammer *10 + hammerExtra
+func MeleeHammer(hammerRune, shieldRune)
+  ?hammerRune = ice
+    equipL ice hammer *10 +21
+  ?hammerRune = fire
+    equipL fire hammer *10 +21
+  ?hammerRune = poison
+    equipL poison hammer *10 +21
+  ?hammerRune = aether
+    equipL aether hammer *10 +21
+  ?hammerRune = vigor
+    equipL vigor hammer *10 +21
+
+  ?shieldRune = ice
+    equipR ice shield *10 +21
+  ?shieldRune = fire
+    equipR fire shield *10 +21
+  ?shieldRune = poison
+    equipR poison shield *10 +21
+  ?shieldRune = aether
+    equipR aether shield *10 +21
+  ?shieldRune = vigor
+    equipR vigor shield *10 +21
+
+func MeleeDPS(swordRune, hammerRune)
+  ?swordRune = ice
+    equipL ice sword *10 +21
+  ?swordRune = fire
+    equipL fire sword *10 +21
+  ?swordRune = poison
+    equipL poison sword *10 +21
+  ?swordRune = aether
+    equipL aether sword *10 +21
+  ?swordRune = vigor
+    equipL vigor sword *10 +21
+  
+  ?hammerRune = ice
+    equipR ice hammer *10 +21
+  ?hammerRune = fire
+    equipR fire hammer *10 +21
+  ?hammerRune = poison
+    equipR poison hammer *10 +21
+  ?hammerRune = aether
+    equipR aether hammer *10 +21
+  ?hammerRune = vigor
+    equipR vigor hammer *10 +21
 
 // ranged
-func Ranged(shieldExtra)
-  equipL crossbow *10
-  equipR shield *10 + shieldExtra
+func Ranged(shieldRune)
+  equipL crossbow *10 +21
+  ?shieldRune = ice
+    equipR ice shield *10 +21
+  ?shieldRune = fire
+    equipR fire shield *10 +21
+  ?shieldRune = poison
+    equipR poison shield *10 +21
+  ?shieldRune = aether
+    equipR aether shield *10 +21
+  ?shieldRune = vigor
+    equipR vigor shield *10 +21
 
 func RangedRepeat()
-  equip repeating crossbow *10
+  equip repeating crossbow *10 +21
 
 func RangedHealing()
-  equipL crossbow *10
+  equipL crossbow *10 +21
   equipR ouroboros
 
-func RangedWand()
-  equipL crossbow *10
-  equipR wand *10
+func RangedWand(wandRune)
+  equipL crossbow *10 +21
+  ?wandRune = ice
+    equipR ice wand *10 +21
+  ?wandRune = fire
+    equipR fire wand *10 +21
+  ?wandRune = poison
+    equipR poison wand *10 +21
+  ?wandRune = aether
+    equipR aether wand *10 +21
+  ?wandRune = vigor
+    equipR vigor wand *10 +21
 
 
 // magic
-func Staff(staffExtra)
-  equip staff *10 + staffExtra
+func Staff(runeType)
+  ?runeType = ice
+    equip ice staff *10 +21
+  ?runeType = fire
+    equip fire staff *10 +21
+  ?runeType = poison
+    equip poison staff *10 +21
+  ?runeType = aether
+    equip aether staff *10 +21
+  ?runeType = vigor
+    equip vigor staff *10 +21
 
 
 // special
-func Dash(swordExtra)
-  equipL sword *10 + swordExtra
-  equipR shield *10 dashing
+func Dash(swordRune)
+  ?swordRune = ice
+    equipL ice sword *10 +21
+  ?swordRune = fire
+    equipL fire sword *10 +21
+  ?swordRune = poison
+    equipL poison sword *10 +21
+  ?swordRune = aether
+    equipL aether sword *10 +21
+  ?swordRune = vigor
+    equipL vigor sword *10 +21
+
+  equipR dashing shield *10 +21
 
 func LostItem(lostItem)
-  equip lostItem *10
+  equip lostItem *10 +21
 
 
 // out of battle

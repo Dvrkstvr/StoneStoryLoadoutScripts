@@ -13,7 +13,7 @@ var loadouts = import User/loadouts
     loadouts.MeleeSword(poison,"")
   :?foe = boss | foe = poena
     ?foe.distance >= 8
-      loadouts.equipDash(poison)
+      loadouts.Dash(poison)
     :
       loadouts.MeleeDPS(poison,poison)
   ?hp <= 10

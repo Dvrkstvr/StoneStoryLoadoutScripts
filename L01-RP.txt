@@ -9,20 +9,20 @@ var loadouts = import User/loadouts
   ?pickup.distance < 6
     loadouts.healstvr()
   ?foe = dysangelos_bearer
-    loadouts.MeleeShield("","")
+    loadouts.MeleeSword("","")
   ?foe = dysangelos_elementalist
     ?foe = poison
-      loadouts.MeleeShield(ice,ice)
+      loadouts.MeleeSword(ice,ice)
     :?foe = vigor
-      loadouts.MeleeShield(poison,poison)
+      loadouts.MeleeSword(poison,poison)
     :?foe = aether
-      loadouts.MeleeShield(vigor,vigor)
+      loadouts.MeleeSword(vigor,vigor)
     :?foe = fire
-      loadouts.MeleeShield(aether,aether)
+      loadouts.MeleeSword(aether,aether)
     :?foe = ice
-      loadouts.MeleeShield(fire,fire)
+      loadouts.MeleeSword(fire,fire)
   ?foe = dysangelos_perfected
-    loadouts.MeleeShield("","")
+    loadouts.MeleeDPS("","")
     ?foe.armor > 0
       loadouts.MeleeHammer("","")
     ?(hp + armor) <= 30
